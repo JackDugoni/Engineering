@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mechanical Engineering Cheat Sheet</title>
+  <title>Jack Dugoni's Engineering Cheat Sheet</title>
   <style>
     /* Basic Reset & Styling */
     * {
@@ -156,6 +156,155 @@
       <div class="formula">ΣF = 0  and  ΣM = 0</div>
       <p><em>Conditions for static equilibrium in a structure.</em></p>
     </div>
+<!-- 1. Equilibrium Condition -->
+<div class="formula-card" data-category="statics">
+  <h2>Equilibrium Conditions</h2>
+  <div class="formula">ΣF = 0, ΣM = 0</div>
+  <p><em>For a body in static equilibrium, the sum of forces and moments must be zero.</em></p>
+</div>
+
+<!-- 2. Force Components -->
+<div class="formula-card" data-category="statics">
+  <h2>Force Components</h2>
+  <div class="formula">F_x = F cosθ, F_y = F sinθ</div>
+  <p><strong>F</strong>: Force magnitude (N)</p>
+  <p><strong>θ</strong>: Angle with respect to x-axis (degrees)</p>
+  <p><em>Breaks a force into x and y components.</em></p>
+</div>
+
+<!-- 3. Moment of a Force -->
+<div class="formula-card" data-category="statics">
+  <h2>Moment of a Force</h2>
+  <div class="formula">M = F × d</div>
+  <p><strong>F</strong>: Force (N)</p>
+  <p><strong>d</strong>: Perpendicular distance from pivot (m)</p>
+  <p><em>Measures rotational effect of a force.</em></p>
+</div>
+
+<!-- 4. Couple Moment -->
+<div class="formula-card" data-category="statics">
+  <h2>Couple Moment</h2>
+  <div class="formula">M = F × r</div>
+  <p><strong>r</strong>: Distance between force pairs (m)</p>
+  <p><em>Describes rotational force of two equal and opposite forces.</em></p>
+</div>
+
+<!-- 5. Centroid of a Rectangle -->
+<div class="formula-card" data-category="statics">
+  <h2>Centroid of a Rectangle</h2>
+  <div class="formula">x̄ = b/2, ȳ = h/2</div>
+  <p><strong>b</strong>: Base width (m)</p>
+  <p><strong>h</strong>: Height (m)</p>
+  <p><em>Determines the center of mass of a rectangular shape.</em></p>
+</div>
+
+<!-- 6. Centroid of a Triangle -->
+<div class="formula-card" data-category="statics">
+  <h2>Centroid of a Triangle</h2>
+  <div class="formula">x̄ = b/3, ȳ = h/3</div>
+  <p><em>Location of centroid for a right-angled triangle.</em></p>
+</div>
+
+<!-- 7. Parallel Axis Theorem -->
+<div class="formula-card" data-category="statics">
+  <h2>Parallel Axis Theorem</h2>
+  <div class="formula">I = I_c + A d²</div>
+  <p><strong>I_c</strong>: Moment of inertia at centroid</p>
+  <p><strong>A</strong>: Area (m²)</p>
+  <p><strong>d</strong>: Distance from centroid (m)</p>
+  <p><em>Used to determine moment of inertia about any axis.</em></p>
+</div>
+
+<!-- 8. Perpendicular Axis Theorem -->
+<div class="formula-card" data-category="statics">
+  <h2>Perpendicular Axis Theorem</h2>
+  <div class="formula">I_z = I_x + I_y</div>
+  <p><em>Used for thin, flat bodies to find moment of inertia.</em></p>
+</div>
+
+<!-- 9. Shear Force -->
+<div class="formula-card" data-category="statics">
+  <h2>Shear Force (V)</h2>
+  <div class="formula">V = ΣF_y</div>
+  <p><em>Sum of vertical forces acting on a beam section.</em></p>
+</div>
+
+<!-- 10. Bending Moment -->
+<div class="formula-card" data-category="statics">
+  <h2>Bending Moment (M)</h2>
+  <div class="formula">M = Σ(F × d)</div>
+  <p><em>Measures the bending effect of forces on a beam.</em></p>
+</div>
+
+<!-- 11. Shear Stress -->
+<div class="formula-card" data-category="statics">
+  <h2>Shear Stress (τ)</h2>
+  <div class="formula">τ = V / A</div>
+  <p><em>Stress due to shear force in a material.</em></p>
+</div>
+
+<!-- 12. Maximum Bending Stress -->
+<div class="formula-card" data-category="statics">
+  <h2>Maximum Bending Stress</h2>
+  <div class="formula">σ = (M c) / I</div>
+  <p><em>Stress in a beam due to bending.</em></p>
+</div>
+
+<!-- 13. Section Modulus -->
+<div class="formula-card" data-category="statics">
+  <h2>Section Modulus</h2>
+  <div class="formula">S = I / c</div>
+  <p><em>Determines bending strength of a cross-section.</em></p>
+</div>
+
+<!-- 14. Moment of Inertia of a Circle -->
+<div class="formula-card" data-category="statics">
+  <h2>Moment of Inertia of a Circle</h2>
+  <div class="formula">I = (π d⁴) / 64</div>
+  <p><em>Resistance of a circular section to bending.</em></p>
+</div>
+
+<!-- 15. Moment of Inertia of a Hollow Circle -->
+<div class="formula-card" data-category="statics">
+  <h2>Moment of Inertia of a Hollow Circle</h2>
+  <div class="formula">I = (π (D⁴ - d⁴)) / 64</div>
+  <p><em>Resistance of a hollow circular section to bending.</em></p>
+</div>
+
+<!-- 16. Truss Joint Equilibrium -->
+<div class="formula-card" data-category="statics">
+  <h2>Method of Joints</h2>
+  <div class="formula">ΣF_x = 0, ΣF_y = 0</div>
+  <p><em>Used to solve for forces in truss members.</em></p>
+</div>
+
+<!-- 17. Method of Sections -->
+<div class="formula-card" data-category="statics">
+  <h2>Method of Sections</h2>
+  <div class="formula">ΣF = 0, ΣM = 0</div>
+  <p><em>Alternative approach for solving trusses.</em></p>
+</div>
+
+<!-- 18. Friction Force -->
+<div class="formula-card" data-category="statics">
+  <h2>Friction Force</h2>
+  <div class="formula">F_f = μN</div>
+  <p><em>Force resisting motion due to contact surfaces.</em></p>
+</div>
+
+<!-- 19. Angle of Repose -->
+<div class="formula-card" data-category="statics">
+  <h2>Angle of Repose</h2>
+  <div class="formula">tanθ = μ</div>
+  <p><em>Angle at which an object starts sliding on a surface.</em></p>
+</div>
+
+<!-- 20. Work Done by a Force -->
+<div class="formula-card" data-category="statics">
+  <h2>Work Done by a Force</h2>
+  <div class="formula">W = F d cosθ</div>
+  <p><em>Work done when a force moves an object.</em></p>
+</div>
 
     <!-- Dynamics -->
     <div class="formula-card" data-category="dynamics">

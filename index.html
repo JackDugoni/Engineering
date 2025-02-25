@@ -503,6 +503,140 @@
       <p><strong>Tₛ</strong>: Surrounding temperature (K)</p>
       <p><em>Radiative heat transfer between surfaces.</em></p>
     </div>
+    <!-- Heat Flux -->
+<div class="formula-card" data-category="heat">
+  <h2>Heat Flux</h2>
+  <div class="formula">q = Q/A</div>
+  <p><strong>q</strong>: Heat flux (W/m²)</p>
+  <p><strong>Q</strong>: Heat transfer rate (W)</p>
+  <p><strong>A</strong>: Surface area (m²)</p>
+  <p><em>Defines the rate of heat transfer per unit area.</em></p>
+</div>
+
+<!-- Thermal Resistance -->
+<div class="formula-card" data-category="heat">
+  <h2>Thermal Resistance</h2>
+  <div class="formula">R = L / (kA)</div>
+  <p><strong>R</strong>: Thermal resistance (K/W)</p>
+  <p><strong>L</strong>: Thickness of material (m)</p>
+  <p><strong>k</strong>: Thermal conductivity (W/m·K)</p>
+  <p><strong>A</strong>: Cross-sectional area (m²)</p>
+  <p><em>Used to model heat conduction in a solid.</em></p>
+</div>
+
+<!-- Lumped Capacitance Method -->
+<div class="formula-card" data-category="heat">
+  <h2>Lumped Capacitance Method</h2>
+  <div class="formula">T(t) = T∞ + (T₀ - T∞)e^(-ht/ρcL)</div>
+  <p><strong>T(t)</strong>: Temperature at time t (K)</p>
+  <p><strong>T∞</strong>: Ambient temperature (K)</p>
+  <p><strong>T₀</strong>: Initial temperature (K)</p>
+  <p><strong>h</strong>: Heat transfer coefficient (W/m²·K)</p>
+  <p><strong>ρ</strong>: Density (kg/m³)</p>
+  <p><strong>c</strong>: Specific heat capacity (J/kg·K)</p>
+  <p><strong>L</strong>: Characteristic length (m)</p>
+  <p><em>Used when Biot number is small (Bi < 0.1).</em></p>
+</div>
+
+<!-- Biot Number -->
+<div class="formula-card" data-category="heat">
+  <h2>Biot Number</h2>
+  <div class="formula">Bi = hL_c / k</div>
+  <p><strong>Bi</strong>: Biot number (dimensionless)</p>
+  <p><strong>h</strong>: Heat transfer coefficient (W/m²·K)</p>
+  <p><strong>L_c</strong>: Characteristic length (m)</p>
+  <p><strong>k</strong>: Thermal conductivity (W/m·K)</p>
+  <p><em>Determines whether lumped capacitance method can be applied.</em></p>
+</div>
+
+<!-- Nusselt Number -->
+<div class="formula-card" data-category="heat">
+  <h2>Nusselt Number</h2>
+  <div class="formula">Nu = hL/k</div>
+  <p><strong>Nu</strong>: Nusselt number (dimensionless)</p>
+  <p><strong>h</strong>: Heat transfer coefficient (W/m²·K)</p>
+  <p><strong>L</strong>: Characteristic length (m)</p>
+  <p><strong>k</strong>: Thermal conductivity (W/m·K)</p>
+  <p><em>Represents the ratio of convective to conductive heat transfer.</em></p>
+</div>
+
+<!-- Prandtl Number -->
+<div class="formula-card" data-category="heat">
+  <h2>Prandtl Number</h2>
+  <div class="formula">Pr = ν/α = (c_p μ)/k</div>
+  <p><strong>Pr</strong>: Prandtl number (dimensionless)</p>
+  <p><strong>ν</strong>: Kinematic viscosity (m²/s)</p>
+  <p><strong>α</strong>: Thermal diffusivity (m²/s)</p>
+  <p><strong>c_p</strong>: Specific heat capacity (J/kg·K)</p>
+  <p><strong>μ</strong>: Dynamic viscosity (Pa·s)</p>
+  <p><strong>k</strong>: Thermal conductivity (W/m·K)</p>
+  <p><em>Characterizes heat diffusion relative to momentum diffusion.</em></p>
+</div>
+
+<!-- Reynolds Number -->
+<div class="formula-card" data-category="heat">
+  <h2>Reynolds Number</h2>
+  <div class="formula">Re = ρuL/μ</div>
+  <p><strong>Re</strong>: Reynolds number (dimensionless)</p>
+  <p><strong>ρ</strong>: Fluid density (kg/m³)</p>
+  <p><strong>u</strong>: Flow velocity (m/s)</p>
+  <p><strong>L</strong>: Characteristic length (m)</p>
+  <p><strong>μ</strong>: Dynamic viscosity (Pa·s)</p>
+  <p><em>Determines whether flow is laminar or turbulent.</em></p>
+</div>
+
+<!-- Rayleigh Number -->
+<div class="formula-card" data-category="heat">
+  <h2>Rayleigh Number</h2>
+  <div class="formula">Ra = GrPr</div>
+  <p><strong>Ra</strong>: Rayleigh number (dimensionless)</p>
+  <p><strong>Gr</strong>: Grashof number (dimensionless)</p>
+  <p><strong>Pr</strong>: Prandtl number (dimensionless)</p>
+  <p><em>Determines the onset of natural convection.</em></p>
+</div>
+
+<!-- Grashof Number -->
+<div class="formula-card" data-category="heat">
+  <h2>Grashof Number</h2>
+  <div class="formula">Gr = gβ(Tₛ - T∞)L³/ν²</div>
+  <p><strong>Gr</strong>: Grashof number (dimensionless)</p>
+  <p><strong>g</strong>: Gravitational acceleration (m/s²)</p>
+  <p><strong>β</strong>: Thermal expansion coefficient (1/K)</p>
+  <p><strong>Tₛ</strong>: Surface temperature (K)</p>
+  <p><strong>T∞</strong>: Ambient temperature (K)</p>
+  <p><strong>L</strong>: Characteristic length (m)</p>
+  <p><strong>ν</strong>: Kinematic viscosity (m²/s)</p>
+  <p><em>Determines buoyancy-driven flow strength.</em></p>
+</div>
+
+<!-- Effectiveness-NTU Method -->
+<div class="formula-card" data-category="heat">
+  <h2>Effectiveness-NTU Method</h2>
+  <div class="formula">ε = 1 - e^(-NTU)</div>
+  <p><strong>ε</strong>: Heat exchanger effectiveness (dimensionless)</p>
+  <p><strong>NTU</strong>: Number of transfer units (dimensionless)</p>
+  <p><em>Used to analyze heat exchanger performance.</em></p>
+</div>
+
+<!-- Convective Heat Transfer (Flat Plate) -->
+<div class="formula-card" data-category="heat">
+  <h2>Convective Heat Transfer (Flat Plate)</h2>
+  <div class="formula">Nu = 0.332 Re^(1/2) Pr^(1/3)</div>
+  <p><strong>Nu</strong>: Nusselt number (dimensionless)</p>
+  <p><strong>Re</strong>: Reynolds number (dimensionless)</p>
+  <p><strong>Pr</strong>: Prandtl number (dimensionless)</p>
+  <p><em>Used for laminar flow over a flat plate.</em></p>
+</div>
+
+<!-- Log Mean Temperature Difference -->
+<div class="formula-card" data-category="heat">
+  <h2>Log Mean Temperature Difference</h2>
+  <div class="formula">ΔT_lm = (ΔT₁ - ΔT₂) / ln(ΔT₁/ΔT₂)</div>
+  <p><strong>ΔT_lm</strong>: Log mean temperature difference (K)</p>
+  <p><strong>ΔT₁, ΔT₂</strong>: Temperature differences at heat exchanger ends (K)</p>
+  <p><em>Used for heat exchanger calculations.</em></p>
+</div>
+
 
     <!-- Thermodynamics -->
     <div class="formula-card" data-category="thermodynamics">

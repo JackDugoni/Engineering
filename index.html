@@ -29,6 +29,29 @@
     header p {
       font-size: 1.1em;
     }
+    /* Filter Bar Styling */
+    #filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #ecf0f1;
+      padding: 10px;
+    }
+    #filter-bar .filter-btn {
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #333;
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+    }
+    #filter-bar .filter-btn:hover, #filter-bar .filter-btn.active {
+      background: #2c3e50;
+      color: #fff;
+      border-color: #2c3e50;
+    }
     .container {
       max-width: 1200px;
       margin: 20px auto;
@@ -75,47 +98,255 @@
 <body>
   <header>
     <h1>Mechanical Engineering Cheat Sheet</h1>
-    <p>Your quick reference for common engineering formulas</p>
+    <p>Your quick reference for common engineering formulas and constants</p>
   </header>
+
+  <!-- Filter Bar -->
+  <div id="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Equations</button>
+    <button class="filter-btn" data-filter="thermodynamics">Thermodynamics</button>
+    <button class="filter-btn" data-filter="statics">Statics</button>
+    <button class="filter-btn" data-filter="dynamics">Dynamics</button>
+    <button class="filter-btn" data-filter="fluid">Fluid Mechanics</button>
+    <button class="filter-btn" data-filter="materials">Materials</button>
+    <button class="filter-btn" data-filter="heat">Heat Transfer</button>
+    <button class="filter-btn" data-filter="constants">Engineering Constants</button>
+  </div>
+
   <div class="container">
-    <!-- Stress Formula -->
-    <div class="formula-card">
+    <!-- Materials -->
+    <div class="formula-card" data-category="materials">
       <h2>Stress (σ)</h2>
       <div class="formula">σ = F / A</div>
       <p><strong>F</strong>: Applied force (N)</p>
       <p><strong>A</strong>: Cross-sectional area (m²)</p>
-      <p><em>Explanation:</em> Calculates the internal force per unit area within a material when subjected to external loads.</p>
+      <p><em>Internal force per unit area under load.</em></p>
     </div>
-    <!-- Strain Formula -->
-    <div class="formula-card">
+    <div class="formula-card" data-category="materials">
       <h2>Strain (ε)</h2>
       <div class="formula">ε = ΔL / L</div>
       <p><strong>ΔL</strong>: Change in length (m)</p>
       <p><strong>L</strong>: Original length (m)</p>
-      <p><em>Explanation:</em> A dimensionless measure of deformation representing how much a material stretches or compresses.</p>
+      <p><em>Measure of deformation due to applied load.</em></p>
     </div>
-    <!-- Young's Modulus -->
-    <div class="formula-card">
+    <div class="formula-card" data-category="materials">
       <h2>Young's Modulus (E)</h2>
       <div class="formula">E = σ / ε</div>
-      <p><em>Explanation:</em> Relates stress to strain in the elastic region of a material, indicating its stiffness.</p>
+      <p><em>Stiffness of a material within its elastic limit.</em></p>
     </div>
-    <!-- Torque Formula -->
-    <div class="formula-card">
-      <h2>Torque (T)</h2>
-      <div class="formula">T = F × r</div>
-      <p><strong>F</strong>: Force (N)</p>
-      <p><strong>r</strong>: Distance from the pivot (m)</p>
-      <p><em>Explanation:</em> Measures the turning effect produced by a force acting at a distance from an axis.</p>
+    <div class="formula-card" data-category="materials">
+      <h2>Factor of Safety (FoS)</h2>
+      <div class="formula">FoS = Ultimate Strength / Allowable Stress</div>
+      <p><strong>Ultimate Strength</strong>: Maximum stress (Pa)</p>
+      <p><strong>Allowable Stress</strong>: Design stress (Pa)</p>
+      <p><em>Design safety margin.</em></p>
     </div>
-    <!-- Moment of Inertia (Rectangular Section) -->
-    <div class="formula-card">
-      <h2>Moment of Inertia (I)</h2>
-      <div class="formula">I = (b h³) / 12</div>
-      <p><strong>b</strong>: Base width (m)</p>
+
+    <!-- Statics -->
+    <div class="formula-card" data-category="statics">
+      <h2>Bending Stress (σ)</h2>
+      <div class="formula">σ = (M × c) / I</div>
+      <p><strong>M</strong>: Bending moment (N·m)</p>
+      <p><strong>c</strong>: Distance from neutral axis (m)</p>
+      <p><strong>I</strong>: Moment of inertia (m⁴)</p>
+      <p><em>Stress distribution in a beam under bending load.</em></p>
+    </div>
+    <div class="formula-card" data-category="statics">
+      <h2>Equilibrium Conditions</h2>
+      <div class="formula">ΣF = 0  and  ΣM = 0</div>
+      <p><em>Conditions for static equilibrium in a structure.</em></p>
+    </div>
+
+    <!-- Dynamics -->
+    <div class="formula-card" data-category="dynamics">
+      <h2>Newton's Second Law</h2>
+      <div class="formula">F = m a</div>
+      <p><strong>m</strong>: Mass (kg)</p>
+      <p><strong>a</strong>: Acceleration (m/s²)</p>
+      <p><em>Relates force, mass, and acceleration.</em></p>
+    </div>
+    <div class="formula-card" data-category="dynamics">
+      <h2>Uniform Acceleration</h2>
+      <div class="formula">
+        v = u + at<br>
+        s = ut + ½at²<br>
+        v² = u² + 2as
+      </div>
+      <p><strong>u</strong>: Initial velocity (m/s)</p>
+      <p><strong>v</strong>: Final velocity (m/s)</p>
+      <p><strong>a</strong>: Acceleration (m/s²)</p>
+      <p><strong>s</strong>: Displacement (m)</p>
+      <p><strong>t</strong>: Time (s)</p>
+      <p><em>Motion equations under constant acceleration.</em></p>
+    </div>
+    <div class="formula-card" data-category="dynamics">
+      <h2>Angular Kinematics</h2>
+      <div class="formula">
+        ω = ω₀ + αt<br>
+        θ = ω₀t + ½αt²<br>
+        ω² = ω₀² + 2αθ
+      </div>
+      <p><strong>ω</strong>: Angular velocity (rad/s)</p>
+      <p><strong>ω₀</strong>: Initial angular velocity (rad/s)</p>
+      <p><strong>α</strong>: Angular acceleration (rad/s²)</p>
+      <p><strong>θ</strong>: Angular displacement (rad)</p>
+      <p><strong>t</strong>: Time (s)</p>
+      <p><em>Describes rotational motion under constant acceleration.</em></p>
+    </div>
+    <div class="formula-card" data-category="dynamics">
+      <h2>Kinetic Energy</h2>
+      <div class="formula">KE = ½ m v²</div>
+      <p><strong>m</strong>: Mass (kg)</p>
+      <p><strong>v</strong>: Velocity (m/s)</p>
+      <p><em>Energy possessed by a moving object.</em></p>
+    </div>
+
+    <!-- Fluid Mechanics -->
+    <div class="formula-card" data-category="fluid">
+      <h2>Bernoulli's Equation</h2>
+      <div class="formula">P + ½ρv² + ρgh = constant</div>
+      <p><strong>P</strong>: Pressure (Pa)</p>
+      <p><strong>ρ</strong>: Fluid density (kg/m³)</p>
+      <p><strong>v</strong>: Fluid velocity (m/s)</p>
+      <p><strong>g</strong>: Acceleration due to gravity (m/s²)</p>
       <p><strong>h</strong>: Height (m)</p>
-      <p><em>Explanation:</em> Quantifies a beam's resistance to bending, crucial for structural analysis.</p>
+      <p><em>Energy conservation in fluid flow.</em></p>
+    </div>
+    <div class="formula-card" data-category="fluid">
+      <h2>Reynolds Number (Re)</h2>
+      <div class="formula">Re = (ρ v L) / μ</div>
+      <p><strong>ρ</strong>: Density (kg/m³)</p>
+      <p><strong>v</strong>: Velocity (m/s)</p>
+      <p><strong>L</strong>: Characteristic length (m)</p>
+      <p><strong>μ</strong>: Dynamic viscosity (Pa·s)</p>
+      <p><em>Determines flow regime: laminar or turbulent.</em></p>
+    </div>
+    <div class="formula-card" data-category="fluid">
+      <h2>Continuity Equation</h2>
+      <div class="formula">A₁v₁ = A₂v₂</div>
+      <p><strong>A</strong>: Cross-sectional area (m²)</p>
+      <p><strong>v</strong>: Velocity (m/s)</p>
+      <p><em>Mass conservation in steady fluid flow.</em></p>
+    </div>
+
+    <!-- Heat Transfer -->
+    <div class="formula-card" data-category="heat">
+      <h2>Fourier's Law</h2>
+      <div class="formula">Q = -kA (dT/dx)</div>
+      <p><strong>Q</strong>: Heat transfer rate (W)</p>
+      <p><strong>k</strong>: Thermal conductivity (W/m·K)</p>
+      <p><strong>A</strong>: Cross-sectional area (m²)</p>
+      <p><strong>dT/dx</strong>: Temperature gradient (K/m)</p>
+      <p><em>Describes conduction of heat through materials.</em></p>
+    </div>
+    <div class="formula-card" data-category="heat">
+      <h2>Newton's Law of Cooling</h2>
+      <div class="formula">Q = hA (Tₛ - Tₑ)</div>
+      <p><strong>h</strong>: Heat transfer coefficient (W/m²·K)</p>
+      <p><strong>A</strong>: Surface area (m²)</p>
+      <p><strong>Tₛ</strong>: Surface temperature (K)</p>
+      <p><strong>Tₑ</strong>: Ambient temperature (K)</p>
+      <p><em>Describes convective heat transfer from surfaces.</em></p>
+    </div>
+    <div class="formula-card" data-category="heat">
+      <h2>Stefan-Boltzmann Law</h2>
+      <div class="formula">Q = εσA (T⁴ - Tₛ⁴)</div>
+      <p><strong>ε</strong>: Emissivity (dimensionless)</p>
+      <p><strong>σ</strong>: 5.67×10⁻⁸ W/(m²·K⁴)</p>
+      <p><strong>A</strong>: Surface area (m²)</p>
+      <p><strong>T</strong>: Temperature (K)</p>
+      <p><strong>Tₛ</strong>: Surrounding temperature (K)</p>
+      <p><em>Radiative heat transfer between surfaces.</em></p>
+    </div>
+
+    <!-- Thermodynamics -->
+    <div class="formula-card" data-category="thermodynamics">
+      <h2>Ideal Gas Law</h2>
+      <div class="formula">PV = nRT</div>
+      <p><strong>P</strong>: Pressure (Pa)</p>
+      <p><strong>V</strong>: Volume (m³)</p>
+      <p><strong>n</strong>: Moles (mol)</p>
+      <p><strong>R</strong>: Gas constant (8.314 J/mol·K)</p>
+      <p><strong>T</strong>: Temperature (K)</p>
+      <p><em>Relates state variables for an ideal gas.</em></p>
+    </div>
+    <div class="formula-card" data-category="thermodynamics">
+      <h2>First Law of Thermodynamics</h2>
+      <div class="formula">ΔU = Q - W</div>
+      <p><strong>ΔU</strong>: Change in internal energy (J)</p>
+      <p><strong>Q</strong>: Heat added (J)</p>
+      <p><strong>W</strong>: Work done by the system (J)</p>
+      <p><em>Energy conservation in thermodynamic processes.</em></p>
+    </div>
+    <div class="formula-card" data-category="thermodynamics">
+      <h2>Carnot Efficiency</h2>
+      <div class="formula">η = 1 - (Tₙ / Tₕ)</div>
+      <p><strong>Tₕ</strong>: Hot reservoir temperature (K)</p>
+      <p><strong>Tₙ</strong>: Cold reservoir temperature (K)</p>
+      <p><em>Maximum efficiency of an ideal heat engine.</em></p>
+    </div>
+
+    <!-- Engineering Constants -->
+    <div class="formula-card" data-category="constants">
+      <h2>Gravitational Acceleration (g)</h2>
+      <div class="formula">g = 9.81 m/s²</div>
+      <p><em>Acceleration due to gravity near Earth's surface.</em></p>
+    </div>
+    <div class="formula-card" data-category="constants">
+      <h2>Universal Gas Constant (R)</h2>
+      <div class="formula">R = 8.314 J/(mol·K)</div>
+      <p><em>Relates energy scale to temperature for ideal gases.</em></p>
+    </div>
+    <div class="formula-card" data-category="constants">
+      <h2>Pi (π)</h2>
+      <div class="formula">π ≈ 3.14159</div>
+      <p><em>Ratio of a circle's circumference to its diameter.</em></p>
+    </div>
+    <div class="formula-card" data-category="constants">
+      <h2>Stefan-Boltzmann Constant (σ)</h2>
+      <div class="formula">σ = 5.67×10⁻⁸ W/(m²·K⁴)</div>
+      <p><em>Used in blackbody radiation calculations.</em></p>
+    </div>
+    <div class="formula-card" data-category="constants">
+      <h2>Avogadro's Number (N<sub>A</sub>)</h2>
+      <div class="formula">N<sub>A</sub> = 6.022×10²³ mol⁻¹</div>
+      <p><em>Number of particles in one mole of substance.</em></p>
+    </div>
+    <div class="formula-card" data-category="constants">
+      <h2>Boltzmann's Constant (k<sub>B</sub>)</h2>
+      <div class="formula">k<sub>B</sub> = 1.38×10⁻²³ J/K</div>
+      <p><em>Relates the average kinetic energy of particles to temperature.</em></p>
+    </div>
+    <div class="formula-card" data-category="constants">
+      <h2>Speed of Light (c)</h2>
+      <div class="formula">c = 2.998×10⁸ m/s</div>
+      <p><em>Speed of light in a vacuum.</em></p>
     </div>
   </div>
+
+  <script>
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const formulaCards = document.querySelectorAll('.formula-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(button => button.classList.remove('active'));
+        // Add active class to the clicked button
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        formulaCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'block';
+          } else {
+            card.style.display = (card.getAttribute('data-category') === filter) ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

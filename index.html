@@ -531,13 +531,22 @@
       <p><em>Maximum efficiency of an ideal heat engine.</em></p>
     </div>
 
-    <!-- Engineering Constants -->
-    <style>
+  <style>
   .constants-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px;
+  }
+  .constant-category {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 5px;
   }
   .constant-card {
     background: #fff;
@@ -564,153 +573,57 @@
 </style>
 
 <div class="constants-container">
-  <!-- Fundamental Constants -->
-  <div class="constant-card" data-category="constants">
-    <h3>Speed of Light</h3>
-    <p>c = 2.998 × 10⁸ m/s</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Gravitational Acceleration</h3>
-    <p>g = 9.81 m/s²</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Planck's Constant</h3>
-    <p>h = 6.626 × 10⁻³⁴ J·s</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Boltzmann's Constant</h3>
-    <p>k<sub>B</sub> = 1.38 × 10⁻²³ J/K</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Stefan-Boltzmann Constant</h3>
-    <p>σ = 5.67 × 10⁻⁸ W/(m²·K⁴)</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Avogadro's Number</h3>
-    <p>N<sub>A</sub> = 6.022 × 10²³ mol⁻¹</p>
-  </div>
 
-  <!-- Thermodynamics Constants -->
-  <div class="constant-card" data-category="constants">
-    <h3>Gas Constant</h3>
-    <p>R = 8.314 J/(mol·K)</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Universal Gas Constant</h3>
-    <p>R = 8314 J/(kmol·K)</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Latent Heat of Water</h3>
-    <p>L = 2260 kJ/kg</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Specific Heat of Water</h3>
-    <p>c<sub>p</sub> = 4.18 kJ/kg·K</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Boiling Point of Water</h3>
-    <p>100°C at 1 atm</p>
-  </div>
+  <!-- Fundamental Constants -->
+  <div class="constant-category">Fundamental Constants</div>
+  <div class="constant-card" data-category="constants"><h3>Speed of Light</h3><p>c = 2.998 × 10⁸ m/s</p></div>
+  <div class="constant-card" data-category="constants"><h3>Gravitational Acceleration</h3><p>g = 9.81 m/s²</p></div>
+  <div class="constant-card" data-category="constants"><h3>Planck's Constant</h3><p>h = 6.626 × 10⁻³⁴ J·s</p></div>
+  <div class="constant-card" data-category="constants"><h3>Boltzmann's Constant</h3><p>k<sub>B</sub> = 1.38 × 10⁻²³ J/K</p></div>
+  <div class="constant-card" data-category="constants"><h3>Stefan-Boltzmann Constant</h3><p>σ = 5.67 × 10⁻⁸ W/(m²·K⁴)</p></div>
+  <div class="constant-card" data-category="constants"><h3>Avogadro's Number</h3><p>N<sub>A</sub> = 6.022 × 10²³ mol⁻¹</p></div>
+
+  <!-- Thermodynamic Constants -->
+  <div class="constant-category">Thermodynamics</div>
+  <div class="constant-card" data-category="constants"><h3>Gas Constant</h3><p>R = 8.314 J/(mol·K)</p></div>
+  <div class="constant-card" data-category="constants"><h3>Latent Heat of Vaporization (Water)</h3><p>L = 2260 kJ/kg</p></div>
+  <div class="constant-card" data-category="constants"><h3>Latent Heat of Fusion (Water)</h3><p>L = 334 kJ/kg</p></div>
+  <div class="constant-card" data-category="constants"><h3>Specific Heat of Water</h3><p>c<sub>p</sub> = 4.18 kJ/kg·K</p></div>
+  <div class="constant-card" data-category="constants"><h3>Specific Heat of Air</h3><p>c<sub>p</sub> = 1.005 kJ/kg·K</p></div>
+  <div class="constant-card" data-category="constants"><h3>Boiling Point of Water</h3><p>100°C at 1 atm</p></div>
 
   <!-- Material Properties -->
-  <div class="constant-card" data-category="constants">
-    <h3>Young’s Modulus (Steel)</h3>
-    <p>E = 200 GPa</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Young’s Modulus (Aluminum)</h3>
-    <p>E = 70 GPa</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Poisson’s Ratio (Steel)</h3>
-    <p>ν = 0.3</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Density of Water</h3>
-    <p>ρ = 1000 kg/m³</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Density of Air</h3>
-    <p>ρ = 1.225 kg/m³</p>
-  </div>
+  <div class="constant-category">Material Properties</div>
+  <div class="constant-card" data-category="constants"><h3>Young’s Modulus (Steel)</h3><p>E = 200 GPa</p></div>
+  <div class="constant-card" data-category="constants"><h3>Young’s Modulus (Aluminum)</h3><p>E = 70 GPa</p></div>
+  <div class="constant-card" data-category="constants"><h3>Poisson’s Ratio (Steel)</h3><p>ν = 0.3</p></div>
+  <div class="constant-card" data-category="constants"><h3>Density of Water</h3><p>ρ = 1000 kg/m³</p></div>
+  <div class="constant-card" data-category="constants"><h3>Density of Air</h3><p>ρ = 1.225 kg/m³</p></div>
 
   <!-- Fluid Mechanics -->
-  <div class="constant-card" data-category="constants">
-    <h3>Dynamic Viscosity of Water</h3>
-    <p>μ = 1.002 × 10⁻³ Pa·s</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Dynamic Viscosity of Air</h3>
-    <p>μ = 1.81 × 10⁻⁵ Pa·s</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Reynolds Number Formula</h3>
-    <p>Re = (ρvL)/μ</p>
-  </div>
+  <div class="constant-category">Fluid Mechanics</div>
+  <div class="constant-card" data-category="constants"><h3>Dynamic Viscosity of Water</h3><p>μ = 1.002 × 10⁻³ Pa·s</p></div>
+  <div class="constant-card" data-category="constants"><h3>Dynamic Viscosity of Air</h3><p>μ = 1.81 × 10⁻⁵ Pa·s</p></div>
+  <div class="constant-card" data-category="constants"><h3>Reynolds Number Formula</h3><p>Re = (ρvL)/μ</p></div>
 
-  <!-- Electrical & Other Constants -->
-  <div class="constant-card" data-category="constants">
-    <h3>Charge of Electron</h3>
-    <p>e = 1.602 × 10⁻¹⁹ C</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Permittivity of Free Space</h3>
-    <p>ε₀ = 8.85 × 10⁻¹² F/m</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Permeability of Free Space</h3>
-    <p>μ₀ = 4π × 10⁻⁷ H/m</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Coulomb's Constant</h3>
-    <p>k = 8.99 × 10⁹ N·m²/C²</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Standard Atmosphere</h3>
-    <p>1 atm = 101.325 kPa</p>
-  </div>
-  <div class="constant-card" data-category="constants">
-    <h3>Absolute Zero</h3>
-    <p>0 K = -273.15°C</p>
-  </div>
+  <!-- Electrical Constants -->
+  <div class="constant-category">Electrical Constants</div>
+  <div class="constant-card" data-category="constants"><h3>Charge of Electron</h3><p>e = 1.602 × 10⁻¹⁹ C</p></div>
+  <div class="constant-card" data-category="constants"><h3>Permittivity of Free Space</h3><p>ε₀ = 8.85 × 10⁻¹² F/m</p></div>
+  <div class="constant-card" data-category="constants"><h3>Permeability of Free Space</h3><p>μ₀ = 4π × 10⁻⁷ H/m</p></div>
+  <div class="constant-card" data-category="constants"><h3>Coulomb's Constant</h3><p>k = 8.99 × 10⁹ N·m²/C²</p></div>
+
+  <!-- Other Engineering Constants -->
+  <div class="constant-category">Other Engineering Constants</div>
+  <div class="constant-card" data-category="constants"><h3>Standard Atmosphere</h3><p>1 atm = 101.325 kPa</p></div>
+  <div class="constant-card" data-category="constants"><h3>Absolute Zero</h3><p>0 K = -273.15°C</p></div>
+  <div class="constant-card" data-category="constants"><h3>Pi (π)</h3><p>π ≈ 3.14159</p></div>
+  <div class="constant-card" data-category="constants"><h3>Mach Number Formula</h3><p>Ma = v/c</p></div>
+  <div class="constant-card" data-category="constants"><h3>Thermal Expansion Coefficient (Steel)</h3><p>α = 12 × 10⁻⁶ /K</p></div>
+  <div class="constant-card" data-category="constants"><h3>Thermal Expansion Coefficient (Aluminum)</h3><p>α = 23 × 10⁻⁶ /K</p></div>
+
 </div>
 
-    <div class="formula-card" data-category="constants">
-      <h2>Gravitational Acceleration (g)</h2>
-      <div class="formula">g = 9.81 m/s²</div>
-      <p><em>Acceleration due to gravity near Earth's surface.</em></p>
-    </div>
-    <div class="formula-card" data-category="constants">
-      <h2>Universal Gas Constant (R)</h2>
-      <div class="formula">R = 8.314 J/(mol·K)</div>
-      <p><em>Relates energy scale to temperature for ideal gases.</em></p>
-    </div>
-    <div class="formula-card" data-category="constants">
-      <h2>Pi (π)</h2>
-      <div class="formula">π ≈ 3.14159</div>
-      <p><em>Ratio of a circle's circumference to its diameter.</em></p>
-    </div>
-    <div class="formula-card" data-category="constants">
-      <h2>Stefan-Boltzmann Constant (σ)</h2>
-      <div class="formula">σ = 5.67×10⁻⁸ W/(m²·K⁴)</div>
-      <p><em>Used in blackbody radiation calculations.</em></p>
-    </div>
-    <div class="formula-card" data-category="constants">
-      <h2>Avogadro's Number (N<sub>A</sub>)</h2>
-      <div class="formula">N<sub>A</sub> = 6.022×10²³ mol⁻¹</div>
-      <p><em>Number of particles in one mole of substance.</em></p>
-    </div>
-    <div class="formula-card" data-category="constants">
-      <h2>Boltzmann's Constant (k<sub>B</sub>)</h2>
-      <div class="formula">k<sub>B</sub> = 1.38×10⁻²³ J/K</div>
-      <p><em>Relates the average kinetic energy of particles to temperature.</em></p>
-    </div>
-    <div class="formula-card" data-category="constants">
-      <h2>Speed of Light (c)</h2>
-      <div class="formula">c = 2.998×10⁸ m/s</div>
-      <p><em>Speed of light in a vacuum.</em></p>
-    </div>
-  </div>
 
   <script>
     // Filter functionality

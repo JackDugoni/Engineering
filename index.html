@@ -118,10 +118,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
-            /* Remove grid-auto-rows to allow cards to define their own height */
+            grid-auto-rows: 1fr;
         }
 
-        /* New styles for consistent card heights */
         .formula-card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -130,10 +129,9 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             overflow: hidden;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            /* Set a fixed height */
-            height: 450px;
         }
 
         .formula-card:hover {
@@ -175,11 +173,7 @@
         .formula-variables {
             margin-bottom: 1rem;
             font-size: 0.875rem;
-            /* Allow this section to grow */
             flex-grow: 1;
-            /* Add scrolling if content overflows */
-            overflow-y: auto;
-            max-height: 220px;
         }
 
         .variable {
@@ -200,21 +194,6 @@
             font-size: 0.875rem;
             color: var(--text);
             line-height: 1.5;
-            /* Fixed height for explanations */
-            height: 80px;
-            /* Add fade effect for overflowing text */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .formula-explanation::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--card-bg));
         }
 
         .section-heading {
@@ -274,11 +253,6 @@
 
             .formula-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            /* Adjust card height on mobile */
-            .formula-card {
-                height: 480px;
             }
         }
 
@@ -353,6 +327,202 @@
                     </div>
                     <div class="formula-variables">
                         <div class="variable">
+                            <span class="variable-name">ε</span>
+                            <span class="variable-description">Strain (dimensionless)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">ΔL</span>
+                            <span class="variable-description">Change in length (m)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">L₀</span>
+                            <span class="variable-description">Original length (m)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Stress is the internal resistance of a material to deformation, calculated as force per unit area. Strain is the measure of deformation, calculated as the change in length divided by the original length.
+                    </p>
+                </div>
+
+                <!-- Formula Card 14 -->
+                <div class="formula-card" data-category="materials">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Hooke's Law</h3>
+                        <span class="category-tag">Materials</span>
+                    </div>
+                    <div class="formula-equation">
+                        σ = E·ε, τ = G·γ
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">σ</span>
+                            <span class="variable-description">Normal stress (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">E</span>
+                            <span class="variable-description">Young's modulus (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">ε</span>
+                            <span class="variable-description">Normal strain</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">τ</span>
+                            <span class="variable-description">Shear stress (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">G</span>
+                            <span class="variable-description">Shear modulus (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">γ</span>
+                            <span class="variable-description">Shear strain</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Hooke's Law states that, for small deformations, the strain in a material is proportional to the applied stress. The constant of proportionality is the elastic modulus (E for normal stress/strain, G for shear).
+                    </p>
+                </div>
+
+                <!-- Formula Card 15 -->
+                <div class="formula-card" data-category="materials">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Poisson's Ratio</h3>
+                        <span class="category-tag">Materials</span>
+                    </div>
+                    <div class="formula-equation">
+                        ν = -εᵗᵣₐₙₛ/εₗₒₙₐ
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">ν</span>
+                            <span class="variable-description">Poisson's ratio</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">εᵗᵣₐₙₛ</span>
+                            <span class="variable-description">Transverse strain</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">εₗₒₙₐ</span>
+                            <span class="variable-description">Longitudinal strain</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Poisson's ratio is the negative ratio of transverse strain to longitudinal strain. It characterizes how a material deforms perpendicular to the direction of loading. For most materials, the value is between 0 and 0.5.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Heat Transfer Section -->
+        <div class="category-section" id="heat-transfer">
+            <h2 class="section-heading">Heat Transfer</h2>
+            <div class="formula-grid">
+                <!-- Formula Card 16 -->
+                <div class="formula-card" data-category="heat-transfer">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Fourier's Law of Conduction</h3>
+                        <span class="category-tag">Heat Transfer</span>
+                    </div>
+                    <div class="formula-equation">
+                        q = -k·A·(dT/dx)
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">q</span>
+                            <span class="variable-description">Heat transfer rate (W)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">k</span>
+                            <span class="variable-description">Thermal conductivity (W/(m·K))</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">A</span>
+                            <span class="variable-description">Cross-sectional area (m²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">dT/dx</span>
+                            <span class="variable-description">Temperature gradient (K/m)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Fourier's Law describes heat transfer by conduction, stating that the heat transfer rate is proportional to the negative temperature gradient and the area through which the heat flows.
+                    </p>
+                </div>
+
+                <!-- Formula Card 17 -->
+                <div class="formula-card" data-category="heat-transfer">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Newton's Law of Cooling</h3>
+                        <span class="category-tag">Heat Transfer</span>
+                    </div>
+                    <div class="formula-equation">
+                        q = h·A·(Ts - T∞)
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">q</span>
+                            <span class="variable-description">Heat transfer rate (W)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">h</span>
+                            <span class="variable-description">Heat transfer coefficient (W/(m²·K))</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">A</span>
+                            <span class="variable-description">Surface area (m²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">Ts</span>
+                            <span class="variable-description">Surface temperature (K)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">T∞</span>
+                            <span class="variable-description">Fluid temperature (K)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Newton's Law of Cooling describes heat transfer by convection, stating that the rate of heat loss is proportional to the difference in temperature between the object and its surroundings.
+                    </p>
+                </div>
+
+                <!-- Formula Card 18 -->
+                <div class="formula-card" data-category="heat-transfer">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Stefan-Boltzmann Law</h3>
+                        <span class="category-tag">Heat Transfer</span>
+                    </div>
+                    <div class="formula-equation">
+                        q = ε·σ·A·(T₁⁴ - T₂⁴)
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">q</span>
+                            <span class="variable-description">Heat transfer rate (W)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">ε</span>
+                            <span class="variable-description">Emissivity</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">σ</span>
+                            <span class="variable-description">Stefan-Boltzmann constant (5.67×10⁻⁸ W/(m²·K⁴))</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">A</span>
+                            <span class="variable-description">Surface area (m²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">T₁, T₂</span>
+                            <span class="variable-description">Absolute temperatures (K)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        The Stefan-Boltzmann Law describes heat transfer by radiation, stating that the energy radiated by a black body is proportional to the fourth power of its absolute temperature.
+                    </p>
+                </div>
+            </div>
+        </div>
                             <span class="variable-name">∑F</span>
                             <span class="variable-description">Sum of all forces</span>
                         </div>
@@ -428,62 +598,344 @@
             </div>
         </div>
 
-        <!-- All other sections remain structurally the same, but will have consistent heights thanks to our CSS changes -->
-        
-        <!-- JavaScript to help with search functionality and other interactive features -->
-        <script>
-            // Search functionality
-            document.getElementById('searchInput').addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
-                const cards = document.querySelectorAll('.formula-card');
-                
-                cards.forEach(card => {
-                    const title = card.querySelector('.formula-title').textContent.toLowerCase();
-                    const equation = card.querySelector('.formula-equation').textContent.toLowerCase();
-                    const variables = card.querySelector('.formula-variables').textContent.toLowerCase();
-                    const explanation = card.querySelector('.formula-explanation').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm) || equation.includes(searchTerm) || 
-                        variables.includes(searchTerm) || explanation.includes(searchTerm)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        </script>
-    </main>
-
-    <div class="back-to-top" id="backToTop">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+        <!-- Dynamics Section -->
+        <div class="category-section" id="dynamics">
+            <h2 class="section-heading">Dynamics</h2>
+            <div class="formula-grid">
+                <!-- Formula Card 4 -->
+                <div class="formula-card" data-category="dynamics">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Newton's Second Law</h3>
+                        <span class="category-tag">Dynamics</span>
+                    </div>
+                    <div class="formula-equation">
+                        F = m·a
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">F</span>
+                            <span class="variable-description">Force (N)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">m</span>
+                            <span class="variable-description">Mass (kg)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">a</span>
+                            <span class="variable-description">Acceleration (m/s²)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Newton's Second Law states that the acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.
+                    </p>
                 </div>
-                <div class="copyright">
-                    © 2025 MechEngFormulas. All rights reserved.
+
+                <!-- Formula Card 5 -->
+                <div class="formula-card" data-category="dynamics">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Kinetic Energy</h3>
+                        <span class="category-tag">Dynamics</span>
+                    </div>
+                    <div class="formula-equation">
+                        KE = ½·m·v²
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">KE</span>
+                            <span class="variable-description">Kinetic energy (J)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">m</span>
+                            <span class="variable-description">Mass (kg)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">v</span>
+                            <span class="variable-description">Velocity (m/s)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Kinetic energy is the energy possessed by an object due to its motion. It is directly proportional to the mass and the square of the velocity.
+                    </p>
+                </div>
+
+                <!-- Formula Card 6 -->
+                <div class="formula-card" data-category="dynamics">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Angular Motion</h3>
+                        <span class="category-tag">Dynamics</span>
+                    </div>
+                    <div class="formula-equation">
+                        ω = θ/t, α = ω/t, τ = I·α
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">ω</span>
+                            <span class="variable-description">Angular velocity (rad/s)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">θ</span>
+                            <span class="variable-description">Angular displacement (rad)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">α</span>
+                            <span class="variable-description">Angular acceleration (rad/s²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">τ</span>
+                            <span class="variable-description">Torque (N·m)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">I</span>
+                            <span class="variable-description">Moment of inertia (kg·m²)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        These equations describe angular motion. Angular velocity is the rate of change of angular position, angular acceleration is the rate of change of angular velocity, and torque is proportional to angular acceleration.
+                    </p>
                 </div>
             </div>
         </div>
-    </footer>
 
-    <script>
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-</body>
-</html>
+        <!-- Thermodynamics Section -->
+        <div class="category-section" id="thermodynamics">
+            <h2 class="section-heading">Thermodynamics</h2>
+            <div class="formula-grid">
+                <!-- Formula Card 7 -->
+                <div class="formula-card" data-category="thermodynamics">
+                    <div class="formula-header">
+                        <h3 class="formula-title">First Law of Thermodynamics</h3>
+                        <span class="category-tag">Thermodynamics</span>
+                    </div>
+                    <div class="formula-equation">
+                        ΔU = Q - W
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">ΔU</span>
+                            <span class="variable-description">Change in internal energy (J)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">Q</span>
+                            <span class="variable-description">Heat added to system (J)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">W</span>
+                            <span class="variable-description">Work done by system (J)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        The First Law of Thermodynamics states that energy cannot be created or destroyed, only transformed. The change in internal energy of a system equals the heat added minus the work done by the system.
+                    </p>
+                </div>
+
+                <!-- Formula Card 8 -->
+                <div class="formula-card" data-category="thermodynamics">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Thermal Efficiency</h3>
+                        <span class="category-tag">Thermodynamics</span>
+                    </div>
+                    <div class="formula-equation">
+                        η = W/Qin = 1 - Qout/Qin = 1 - Tc/Th
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">η</span>
+                            <span class="variable-description">Thermal efficiency</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">W</span>
+                            <span class="variable-description">Work output (J)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">Qin</span>
+                            <span class="variable-description">Heat input (J)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">Qout</span>
+                            <span class="variable-description">Heat rejected (J)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">Tc</span>
+                            <span class="variable-description">Cold reservoir temperature (K)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">Th</span>
+                            <span class="variable-description">Hot reservoir temperature (K)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Thermal efficiency is the ratio of work output to heat input in a heat engine. The last formula represents the Carnot efficiency, which is the maximum possible efficiency for a heat engine operating between two temperatures.
+                    </p>
+                </div>
+
+                <!-- Formula Card 9 -->
+                <div class="formula-card" data-category="thermodynamics">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Ideal Gas Law</h3>
+                        <span class="category-tag">Thermodynamics</span>
+                    </div>
+                    <div class="formula-equation">
+                        PV = nRT
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">P</span>
+                            <span class="variable-description">Pressure (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">V</span>
+                            <span class="variable-description">Volume (m³)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">n</span>
+                            <span class="variable-description">Number of moles</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">R</span>
+                            <span class="variable-description">Gas constant (8.314 J/(mol·K))</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">T</span>
+                            <span class="variable-description">Temperature (K)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        The Ideal Gas Law relates pressure, volume, temperature, and the number of moles of a gas. It is an equation of state that approximates the behavior of many gases under many conditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fluid Mechanics Section -->
+        <div class="category-section" id="fluids">
+            <h2 class="section-heading">Fluid Mechanics</h2>
+            <div class="formula-grid">
+                <!-- Formula Card 10 -->
+                <div class="formula-card" data-category="fluids">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Bernoulli's Equation</h3>
+                        <span class="category-tag">Fluid Mechanics</span>
+                    </div>
+                    <div class="formula-equation">
+                        P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">P</span>
+                            <span class="variable-description">Pressure (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">ρ</span>
+                            <span class="variable-description">Fluid density (kg/m³)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">v</span>
+                            <span class="variable-description">Fluid velocity (m/s)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">g</span>
+                            <span class="variable-description">Gravitational acceleration (m/s²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">h</span>
+                            <span class="variable-description">Height (m)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        Bernoulli's equation relates pressure, velocity, and elevation in a moving fluid. It is derived from the principle of conservation of energy and is valid for incompressible, inviscid flow along a streamline.
+                    </p>
+                </div>
+
+                <!-- Formula Card 11 -->
+                <div class="formula-card" data-category="fluids">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Continuity Equation</h3>
+                        <span class="category-tag">Fluid Mechanics</span>
+                    </div>
+                    <div class="formula-equation">
+                        A₁v₁ = A₂v₂
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">A</span>
+                            <span class="variable-description">Cross-sectional area (m²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">v</span>
+                            <span class="variable-description">Fluid velocity (m/s)</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        The continuity equation expresses the conservation of mass in fluid flow. For incompressible flow, it states that the product of the cross-sectional area and velocity remains constant along a streamline.
+                    </p>
+                </div>
+
+                <!-- Formula Card 12 -->
+                <div class="formula-card" data-category="fluids">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Reynolds Number</h3>
+                        <span class="category-tag">Fluid Mechanics</span>
+                    </div>
+                    <div class="formula-equation">
+                        Re = ρvL/μ
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">Re</span>
+                            <span class="variable-description">Reynolds number (dimensionless)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">ρ</span>
+                            <span class="variable-description">Fluid density (kg/m³)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">v</span>
+                            <span class="variable-description">Fluid velocity (m/s)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">L</span>
+                            <span class="variable-description">Characteristic length (m)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">μ</span>
+                            <span class="variable-description">Dynamic viscosity (kg/(m·s))</span>
+                        </div>
+                    </div>
+                    <p class="formula-explanation">
+                        The Reynolds number is a dimensionless quantity that predicts fluid flow patterns. It represents the ratio of inertial forces to viscous forces. Low values indicate laminar flow, while high values indicate turbulent flow.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materials Section -->
+        <div class="category-section" id="materials">
+            <h2 class="section-heading">Materials</h2>
+            <div class="formula-grid">
+                <!-- Formula Card 13 -->
+                <div class="formula-card" data-category="materials">
+                    <div class="formula-header">
+                        <h3 class="formula-title">Stress and Strain</h3>
+                        <span class="category-tag">Materials</span>
+                    </div>
+                    <div class="formula-equation">
+                        σ = F/A, ε = ΔL/L₀
+                    </div>
+                    <div class="formula-variables">
+                        <div class="variable">
+                            <span class="variable-name">σ</span>
+                            <span class="variable-description">Stress (Pa)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">F</span>
+                            <span class="variable-description">Force (N)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">A</span>
+                            <span class="variable-description">Cross-sectional area (m²)</span>
+                        </div>
+                        <div class="variable">
+                            <span class="variable-name">ε</span>
+                            <span class="variable-description">Strain (dimensionless)</span>
+                        </div>
+                        <div class="variable">

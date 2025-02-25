@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechanical Engineering Formula Cheat Sheet</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --secondary: #475569;
+      --background: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --border-radius: 8px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .search-bar {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 1rem;
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      padding: 0.75rem 1rem;
+      color: white;
+      width: 100%;
+      outline: none;
+    }
+
+    .search-bar input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .search-bar button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      padding: 2rem 0;
+    }
+
+    .categories {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+
+    .category-btn {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius);
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .category-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .category-btn.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .formulas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .formula-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .formula-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .formula-header {
+      background-color: var(--primary-dark);
+      color: white;
+      padding: 1rem;
+      font-weight: 600;
+    }
+
+    .formula-body {
+      padding: 1rem;
+    }
+
+    .formula-equation {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      text-align: center;
+      padding: 0.5rem;
+      background-color: var(--background);
+      border-radius: var(--border-radius);
+    }
+
+    .variables {
+      margin-top: 0.5rem;
+    }
+
+    .variables p {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0;
+    }
+
+    .variables p:last-child {
+      border-bottom: none;
+    }
+
+    .variable-name {
+      font-weight: 500;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: var(--border);
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .tab.active {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-copy {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-copy:hover {
+      background-color: var(--primary);
+    }
+
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+      color: var(--border);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .search-bar {
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .formulas-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Dark mode toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        MechFormulas
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search formulas..." id="search-input">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+
+      <button class="theme-toggle" id="theme-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        Dark Mode
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="categories" id="categories">
+      <button class="category-btn active" data-category="all">All Formulas</button>
+      <button class="category-btn" data-category="statics">Statics</button>
+      <button class="category-btn" data-category="dynamics">Dynamics</button>
+      <button class="category-btn" data-category="fluid">Fluid Mechanics</button>
+      <button class="category-btn" data-category="thermo">Thermodynamics</button>
+      <button class="category-btn" data-category="materials">Strength of Materials</button>
+      <button class="category-btn" data-category="heat">Heat Transfer</button>
+      <button class="category-btn" data-category="machine">Machine Design</button>
+    </div>
+
+    <div class="formulas-grid" id="formulas-container">
+      <!-- Statics -->
+      <div class="formula-card" data-category="statics">
+        <div class="formula-header">Equilibrium of Forces</div>
+        <div class="formula-body">
+          <p>For a body to be in static equilibrium, the sum of all forces and moments must be zero.</p>
+          <div class="formula-equation">∑F = 0, ∑M = 0</div>
+          <div class="variables">
+            <p><span class="variable-name">∑F</span> <span>Sum of all forces</span></p>
+            <p><span class="variable-name">∑M</span> <span>Sum of all moments</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <div class="formula-card" data-category="statics">
+        <div class="formula-header">Moment of Force</div>
+        <div class="formula-body">
+          <p>The moment of a force is a measure of its tendency to cause a body to rotate about a specific point.</p>
+          <div class="formula-equation">M = r × F</div>
+          <div class="variables">
+            <p><span class="variable-name">M</span> <span>Moment (N·m)</span></p>
+            <p><span class="variable-name">r</span> <span>Lever arm (m)</span></p>
+            <p><span class="variable-name">F</span> <span>Force (N)</span></p>
+            <p><span class="variable-name">×</span> <span>Cross product</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamics -->
+      <div class="formula-card" data-category="dynamics">
+        <div class="formula-header">Newton's Second Law</div>
+        <div class="formula-body">
+          <p>The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.</p>
+          <div class="formula-equation">F = ma</div>
+          <div class="variables">
+            <p><span class="variable-name">F</span> <span>Force (N)</span></p>
+            <p><span class="variable-name">m</span> <span>Mass (kg)</span></p>
+            <p><span class="variable-name">a</span> <span>Acceleration (m/s²)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <div class="formula-card" data-category="dynamics">
+        <div class="formula-header">Work-Energy Principle</div>
+        <div class="formula-body">
+          <p>The change in kinetic energy of an object is equal to the net work done on the object.</p>
+          <div class="formula-equation">W = ΔKE = ½m(v₂² - v₁²)</div>
+          <div class="variables">
+            <p><span class="variable-name">W</span> <span>Work (J)</span></p>
+            <p><span class="variable-name">ΔKE</span> <span>Change in kinetic energy (J)</span></p>
+            <p><span class="variable-name">m</span> <span>Mass (kg)</span></p>
+            <p><span class="variable-name">v₁</span> <span>Initial velocity (m/s)</span></p>
+            <p><span class="variable-name">v₂</span> <span>Final velocity (m/s)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <!-- Fluid Mechanics -->
+      <div class="formula-card" data-category="fluid">
+        <div class="formula-header">Bernoulli's Equation</div>
+        <div class="formula-body">
+          <p>An increase in the speed of a fluid occurs simultaneously with a decrease in pressure or a decrease in the fluid's potential energy.</p>
+          <div class="formula-equation">P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂</div>
+          <div class="variables">
+            <p><span class="variable-name">P</span> <span>Pressure (Pa)</span></p>
+            <p><span class="variable-name">ρ</span> <span>Fluid density (kg/m³)</span></p>
+            <p><span class="variable-name">v</span> <span>Fluid velocity (m/s)</span></p>
+            <p><span class="variable-name">g</span> <span>Gravitational acceleration (m/s²)</span></p>
+            <p><span class="variable-name">h</span> <span>Height (m)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <div class="formula-card" data-category="fluid">
+        <div class="formula-header">Reynolds Number</div>
+        <div class="formula-body">
+          <p>A dimensionless quantity used to predict whether fluid flow will be laminar or turbulent.</p>
+          <div class="formula-equation">Re = ρvD/μ</div>
+          <div class="variables">
+            <p><span class="variable-name">Re</span> <span>Reynolds number</span></p>
+            <p><span class="variable-name">ρ</span> <span>Fluid density (kg/m³)</span></p>
+            <p><span class="variable-name">v</span> <span>Fluid velocity (m/s)</span></p>
+            <p><span class="variable-name">D</span> <span>Characteristic length (m)</span></p>
+            <p><span class="variable-name">μ</span> <span>Dynamic viscosity (Pa·s)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <!-- Thermodynamics -->
+      <div class="formula-card" data-category="thermo">
+        <div class="formula-header">First Law of Thermodynamics</div>
+        <div class="formula-body">
+          <p>Energy can neither be created nor destroyed, only transferred or converted from one form to another.</p>
+          <div class="formula-equation">ΔU = Q - W</div>
+          <div class="variables">
+            <p><span class="variable-name">ΔU</span> <span>Change in internal energy (J)</span></p>
+            <p><span class="variable-name">Q</span> <span>Heat added to the system (J)</span></p>
+            <p><span class="variable-name">W</span> <span>Work done by the system (J)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <div class="formula-card" data-category="thermo">
+        <div class="formula-header">Thermal Efficiency</div>
+        <div class="formula-body">
+          <p>The ratio of useful work output to the heat input in a heat engine.</p>
+          <div class="formula-equation">η = W/Q₁ = 1 - Q₂/Q₁</div>
+          <div class="variables">
+            <p><span class="variable-name">η</span> <span>Thermal efficiency</span></p>
+            <p><span class="variable-name">W</span> <span>Work output (J)</span></p>
+            <p><span class="variable-name">Q₁</span> <span>Heat input (J)</span></p>
+            <p><span class="variable-name">Q₂</span> <span>Heat rejected (J)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <!-- Strength of Materials -->
+      <div class="formula-card" data-category="materials">
+        <div class="formula-header">Stress</div>
+        <div class="formula-body">
+          <p>The internal resistance of an object to a deforming force applied to it.</p>
+          <div class="formula-equation">σ = F/A</div>
+          <div class="variables">
+            <p><span class="variable-name">σ</span> <span>Stress (Pa)</span></p>
+            <p><span class="variable-name">F</span> <span>Applied force (N)</span></p>
+            <p><span class="variable-name">A</span> <span>Cross-sectional area (m²)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <div class="formula-card" data-category="materials">
+        <div class="formula-header">Strain</div>
+        <div class="formula-body">
+          <p>The measure of deformation representing the displacement between particles in a body relative to a reference length.</p>
+          <div class="formula-equation">ε = ΔL/L₀</div>
+          <div class="variables">
+            <p><span class="variable-name">ε</span> <span>Strain</span></p>
+            <p><span class="variable-name">ΔL</span> <span>Change in length (m)</span></p>
+            <p><span class="variable-name">L₀</span> <span>Original length (m)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <!-- Heat Transfer -->
+      <div class="formula-card" data-category="heat">
+        <div class="formula-header">Fourier's Law of Heat Conduction</div>
+        <div class="formula-body">
+          <p>The rate of heat transfer through a material is proportional to the negative gradient in temperature and to the area perpendicular to that gradient.</p>
+          <div class="formula-equation">q = -k∇T</div>
+          <div class="variables">
+            <p><span class="variable-name">q</span> <span>Heat flux (W/m²)</span></p>
+            <p><span class="variable-name">k</span> <span>Thermal conductivity (W/m·K)</span></p>
+            <p><span class="variable-name">∇T</span> <span>Temperature gradient (K/m)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+      
+      <div class="formula-card" data-category="heat">
+        <div class="formula-header">Newton's Law of Cooling</div>
+        <div class="formula-body">
+          <p>The rate of heat loss of a body is directly proportional to the difference in temperatures between the body and its surroundings.</p>
+          <div class="formula-equation">q = hA(T_s - T_∞)</div>
+          <div class="variables">
+            <p><span class="variable-name">q</span> <span>Heat transfer rate (W)</span></p>
+            <p><span class="variable-name">h</span> <span>Convective heat transfer coefficient (W/m²·K)</span></p>
+            <p><span class="variable-name">A</span> <span>Surface area (m²)</span></p>
+            <p><span class="variable-name">T_s</span> <span>Surface temperature (K)</span></p>
+            <p><span class="variable-name">T_∞</span> <span>Fluid temperature (K)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+
+      <!-- Machine Design -->
+      <div class="formula-card" data-category="machine">
+        <div class="formula-header">Gear Ratio</div>
+        <div class="formula-body">
+          <p>The ratio between the angular velocity of the input gear to the angular velocity of the output gear.</p>
+          <div class="formula-equation">GR = ω₁/ω₂ = N₂/N₁</div>
+          <div class="variables">
+            <p><span class="variable-name">GR</span> <span>Gear ratio</span></p>
+            <p><span class="variable-name">ω₁</span> <span>Angular velocity of input gear (rad/s)</span></p>
+            <p><span class="variable-name">ω₂</span> <span>Angular velocity of output gear (rad/s)</span></p>
+            <p><span class="variable-name">N₁</span> <span>Number of teeth on input gear</span></p>
+            <p><span class="variable-name">N₂</span> <span>Number of teeth on output gear</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
+      
+      <div class="formula-card" data-category="machine">
+        <div class="formula-header">Shaft Torsion</div>
+        <div class="formula-body">
+          <p>The relationship between applied torque and the resulting angle of twist in a shaft.</p>
+          <div class="formula-equation">τ = Tr/J</div>
+          <div class="variables">
+            <p><span class="variable-name">τ</span> <span>Shear stress (Pa)</span></p>
+            <p><span class="variable-name">T</span> <span>Torque (N·m)</span></p>
+            <p><span class="variable-name">r</span> <span>Radius of shaft (m)</span></p>
+            <p><span class="variable-name">J</span> <span>Polar moment of inertia (m⁴)</span></p>
+          </div>
+          <button class="btn-copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Formula
+          </button>
+        </div>
+      </div>
